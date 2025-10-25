@@ -976,6 +976,22 @@ body {
   opacity: 0.9;
 }
 
+.bottom-toggle {
+  margin-top: 2.81vh;
+  margin-bottom: 0;
+}
+
+.map-view-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height));
+}
+
+.map-view-content .map-container {
+  flex: 1;
+  min-height: 0;
+}
+
 /* Floor List Footer */
 .floor-list-footer {
   font-size: var(--font-small);
