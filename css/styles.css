@@ -1,0 +1,149 @@
+/* Ka Lama Digital Kiosk Styles */
+
+/* Brand Colors */
+:root {
+  --uhmc-teal: #004f71;
+  --dark-teal: #00313e;
+  --gray: #65665c;
+  --sage: #afa960;
+  --warm-gray: #aca39a;
+  --pink: #e63f51;
+  --olive: #789904;
+  --yellow: #ffb600;
+  --orange: #dd8a03;
+  --off-white: #fafafa;
+  --light-gray: #f4f1f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #000;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.slide-in {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-cta {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Touch-optimized buttons */
+.touch-target {
+  min-width: 60px;
+  min-height: 60px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.touch-target:active {
+  transform: scale(0.98);
+}
+
+.card-hover {
+  transition: all 0.2s ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.card-hover:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* Gradient backgrounds */
+.gradient-teal {
+  background: linear-gradient(135deg, var(--uhmc-teal) 0%, var(--dark-teal) 100%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--uhmc-teal);
+}
+
+/* Responsive font sizes */
+@media (max-width: 767px) {
+  html { font-size: 14px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  html { font-size: 16px; }
+}
+
+@media (min-width: 1024px) {
+  html { font-size: 18px; }
+}
+
+@media (min-width: 1920px) {
+  html { font-size: 20px; }
+}
