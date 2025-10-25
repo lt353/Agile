@@ -645,3 +645,517 @@ body {
 .program-contact p:last-child {
   margin-bottom: 0;
 }
+
+/* Main Menu Header (Ka Lama Logo) */
+.main-menu-header {
+  background-color: var(--nav-bar-bg);
+  padding: 2.81vh 1.88vw;
+  text-align: center;
+  border-bottom: 0.32vw solid var(--border-color);
+}
+
+.main-menu-logo-label {
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+  border: 0.18vw solid var(--text-primary);
+  padding: 0.56vh 1.88vw;
+  display: inline-block;
+  margin-bottom: 1.12vh;
+}
+
+.main-menu-title {
+  font-size: var(--font-header);
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.main-menu-small-button {
+  background-color: var(--card-bg);
+  border: 0.32vw solid var(--border-color);
+  padding: 2.24vh;
+  font-size: var(--font-small);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 1.02vw;
+  text-align: center;
+  flex: 1;
+}
+
+.main-menu-bottom {
+  display: flex;
+  gap: 1.88vw;
+  margin-bottom: 2.81vh;
+}
+
+.placeholder-button {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.placeholder-text {
+  font-size: var(--font-small);
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Programs Header */
+.programs-header {
+  background-color: var(--text-primary);
+  color: var(--primary-bg);
+  padding: 1.51vh 1.88vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.programs-back, .programs-home {
+  background: transparent;
+  border: 0.18vw solid var(--primary-bg);
+  padding: 0.36vh 1.51vw;
+  font-size: 2.06vw;
+  font-weight: 600;
+  color: var(--primary-bg);
+  cursor: pointer;
+  border-radius: 0.36vw;
+  text-transform: uppercase;
+}
+
+.programs-logo-label {
+  font-size: var(--font-title);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Programs Grid Layout */
+.programs-content {
+  padding: var(--content-padding);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.81vh 1.88vw;
+  margin-top: 2.81vh;
+}
+
+.program-grid-button {
+  background-color: var(--card-bg);
+  border: 0.32vw solid var(--border-color);
+  padding: 8.98vh 2.81vh;
+  font-size: var(--font-title);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 1.02vw;
+  text-align: center;
+  min-height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-grid-button:hover {
+  background-color: #E8E8E8;
+  border-color: var(--border-dark);
+}
+
+/* Program Detail Header */
+.program-detail-header {
+  background-color: var(--card-bg);
+  padding: 1.51vh 1.88vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  border-bottom: 0.32vw solid var(--border-color);
+}
+
+.program-detail-back, .program-detail-home {
+  background: transparent;
+  border: 0.18vw solid var(--text-primary);
+  padding: 0.36vh 1.51vw;
+  font-size: 2.06vw;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 0.36vw;
+  text-transform: uppercase;
+}
+
+.program-detail-logo-label {
+  font-size: var(--font-body);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.program-detail-content {
+  padding: 0;
+}
+
+.program-photo-placeholder {
+  background-color: var(--card-bg);
+  border: 0.32vw solid var(--border-color);
+  padding: 11.22vh 2.81vh;
+  font-size: var(--font-title);
+  font-weight: bold;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 2.81vh var(--content-padding);
+  border-radius: 1.02vw;
+}
+
+.program-name-tagline {
+  font-size: var(--font-body);
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 var(--content-padding) 2.81vh;
+  padding: 2.24vh;
+  background-color: var(--primary-bg);
+  border: 0.32vw solid var(--border-dark);
+  border-radius: 0.57vw;
+}
+
+.program-section {
+  margin: 0 var(--content-padding) 2.81vh;
+  padding: 2.24vh;
+  background-color: var(--primary-bg);
+  font-size: var(--font-body);
+  line-height: 1.6;
+}
+
+/* Directory Landing */
+.directory-content {
+  padding: var(--content-padding);
+}
+
+.directory-subtitle {
+  font-size: var(--font-body);
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2.81vh;
+}
+
+.directory-option-card {
+  background-color: var(--primary-bg);
+  border: 0.32vw solid var(--border-color);
+  padding: 2.81vh;
+  cursor: pointer;
+  border-radius: 1.02vw;
+  margin-bottom: 2.81vh;
+  display: flex;
+  align-items: center;
+  gap: 2.81vh;
+  text-align: left;
+}
+
+.directory-option-card:hover {
+  background-color: var(--card-bg);
+  border-color: var(--border-dark);
+}
+
+.directory-icon {
+  font-size: 6.73vw;
+  flex-shrink: 0;
+}
+
+.directory-option-text {
+  flex: 1;
+}
+
+.directory-option-title {
+  font-size: var(--font-title);
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.76vh;
+}
+
+.directory-option-subtitle {
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+}
+
+.directory-help {
+  margin-top: 5.6vh;
+}
+
+/* Floor Selection Cards */
+.floor-selection-content {
+  padding: var(--content-padding);
+}
+
+.floor-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2.81vh;
+}
+
+.floor-card {
+  background-color: var(--primary-bg);
+  border: 0.32vw solid var(--border-color);
+  padding: 2.24vh;
+  cursor: pointer;
+  border-radius: 1.02vw;
+  text-align: left;
+}
+
+.floor-card:hover {
+  background-color: var(--card-bg);
+  border-color: var(--border-dark);
+}
+
+.floor-card-title {
+  font-size: var(--font-title);
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1.51vh;
+}
+
+.floor-map-preview {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.51vh;
+  background-color: var(--card-bg);
+  border: 0.18vw solid var(--border-color);
+  border-radius: 0.57vw;
+  overflow: hidden;
+}
+
+.floor-map-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.floor-card-list {
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Yellow Toggle Button */
+.yellow-toggle {
+  background-color: var(--accent-gold);
+  color: var(--text-primary);
+  border-color: var(--border-dark);
+}
+
+.yellow-toggle:hover {
+  opacity: 0.9;
+}
+
+/* Floor List Footer */
+.floor-list-footer {
+  font-size: var(--font-small);
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-top: 3.75vh;
+  padding: 2.24vh;
+}
+
+/* Room Detail Page */
+.room-detail-content {
+  padding: var(--content-padding);
+}
+
+.room-number-large {
+  font-size: var(--font-header);
+  font-weight: bold;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.76vh;
+}
+
+.room-floor-label {
+  font-size: var(--font-body);
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2.81vh;
+}
+
+.room-map-placeholder {
+  background-color: var(--card-bg);
+  border: 0.32vw dashed var(--border-color);
+  padding: 8.98vh 2.81vh;
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2.81vh;
+  border-radius: 1.02vw;
+  line-height: 1.8;
+}
+
+.room-map-note {
+  font-size: var(--font-small);
+  color: var(--text-tertiary);
+  margin-top: 1.51vh;
+  font-style: italic;
+}
+
+.room-info-section {
+  margin-bottom: 2.24vh;
+  padding-bottom: 2.24vh;
+  border-bottom: 0.18vw solid var(--border-color);
+}
+
+.room-section-title {
+  font-size: var(--font-body);
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1.12vh;
+}
+
+.room-section-content {
+  font-size: var(--font-body);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.room-detail-button {
+  width: 100%;
+  background-color: var(--action-button);
+  border: none;
+  padding: 1.51vh 2.24vw;
+  font-size: var(--font-button);
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 0.57vw;
+  margin-bottom: 1.51vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.94vw;
+}
+
+.room-detail-button:hover {
+  opacity: 0.85;
+}
+
+.room-detail-button.secondary {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border: 0.32vw solid var(--border-color);
+}
+
+/* Faculty Search Results */
+.faculty-search-content {
+  padding: var(--content-padding);
+}
+
+.faculty-search-box-container {
+  display: flex;
+  gap: 1.12vh;
+  margin-bottom: 1.88vh;
+  align-items: center;
+}
+
+.faculty-search-box-container .search-box {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.search-clear-button {
+  background-color: var(--card-bg);
+  border: 0.18vw solid var(--border-color);
+  padding: 1.12vh 1.88vw;
+  font-size: var(--font-small);
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 0.57vw;
+  white-space: nowrap;
+}
+
+.search-results-count {
+  font-size: var(--font-small);
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1.88vh;
+  text-transform: uppercase;
+}
+
+.faculty-result-card {
+  background-color: var(--card-bg);
+  border: 0.32vw solid var(--border-color);
+  padding: 2.24vh;
+  border-radius: 0.65vw;
+  margin-bottom: 2.81vh;
+}
+
+.faculty-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.12vh;
+}
+
+.faculty-result-name {
+  font-size: var(--font-body);
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.faculty-result-arrow {
+  font-size: var(--font-title);
+  color: var(--text-secondary);
+}
+
+.faculty-result-department {
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+  margin-bottom: 0.56vh;
+}
+
+.faculty-result-room {
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+}
+
+.faculty-contact-section {
+  margin-bottom: 2.81vh;
+  padding: 2.24vh;
+  background-color: var(--primary-bg);
+  border: 0.32vw solid var(--border-color);
+  border-radius: 0.65vw;
+}
+
+.faculty-contact-title {
+  font-size: var(--font-body);
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1.12vh;
+}
+
+.faculty-contact-email {
+  font-size: var(--font-body);
+  color: var(--primary-button);
+}
+
+.faculty-map-button {
+  width: 100%;
+  background-color: var(--action-button);
+  border: none;
+  padding: 1.51vh 2.24vw;
+  font-size: var(--font-button);
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 0.57vw;
+  margin-bottom: 2.81vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.94vw;
+}
+
+.faculty-map-button:hover {
+  opacity: 0.85;
+}
+
+.faculty-location-note {
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.6;
+}
