@@ -1,7 +1,7 @@
 // Digital Signage Application Logic
 
 const app = {
-  currentScreen: 'directory-landing',
+  currentScreen: 'attract-mode',
   previousScreen: null,
   currentRoomInfo: null,
   currentFacultyInfo: null,
@@ -12,7 +12,18 @@ const app = {
   init() {
     this.loadFloorMaps();
     this.populateFloorLists();
-    this.navigate('directory-landing');
+    this.navigate('attract-mode');
+    this.setupAttractMode();
+  },
+
+  // Setup attract mode tap handler
+  setupAttractMode() {
+    const attractMode = document.getElementById('attract-mode');
+    if (attractMode) {
+      attractMode.addEventListener('click', () => {
+        this.navigate('features-main-menu');
+      });
+    }
   },
 
   // Navigation
@@ -42,7 +53,7 @@ const app = {
     if (this.previousScreen) {
       this.navigate(this.previousScreen);
     } else {
-      this.navigate('directory-landing');
+      this.navigate('attract-mode');
     }
   },
 
