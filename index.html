@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Directory - Digital Signage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Screen 1: Directory Landing -->
+  <div id="directory-landing" class="screen active">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('home')">← Back</button>
+      <div class="nav-title">Building Directory</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <button class="directory-option" onclick="app.navigate('by-floor')">
+        Find Rooms & Faculty
+      </button>
+    </div>
+  </div>
+
+  <!-- Screen 2: By Floor Selection -->
+  <div id="by-floor" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('directory-landing')">← Back</button>
+      <div class="nav-title">Select a Floor</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <div class="floor-selection">
+        <button class="floor-button" onclick="app.navigate('floor-2-list')">
+          <div class="floor-button-title">Floor 2</div>
+          <div class="floor-button-preview">
+            Admissions & Records • Financial Aid Office<br>
+            Business Administration • Hawaiian Studies<br>
+            Hospitality Faculty
+          </div>
+        </button>
+        <button class="floor-button" onclick="app.navigate('floor-1-list')">
+          <div class="floor-button-title">Floor 1</div>
+          <div class="floor-button-preview">
+            General Offices • Classrooms<br>
+            Science Labs • Computer Labs
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Floor 2 List View -->
+  <div id="floor-2-list" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
+      <div class="nav-title">Floor 2</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <button class="toggle-button" onclick="app.navigate('floor-2-map')">
+        🗺️ SWITCH TO MAP VIEW
+      </button>
+      <input
+        type="text"
+        class="search-box"
+        placeholder="Search this floor..."
+        oninput="app.searchFloor(2, this.value)"
+      >
+      <div id="floor-2-list-items" class="room-list">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 4: Floor 2 Map View -->
+  <div id="floor-2-map" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
+      <div class="nav-title">Floor 2</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <button class="toggle-button" onclick="app.navigate('floor-2-list')">
+        🗋 SWITCH TO LIST VIEW
+      </button>
+      <input
+        type="text"
+        class="search-box"
+        placeholder="Search this floor..."
+        oninput="app.searchFloorMap(2, this.value)"
+      >
+      <div class="map-container">
+        <div class="map-instructions">Tap any room number on the map for details</div>
+        <div id="floor-2-map-svg" class="floor-map">
+          <!-- SVG will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 5: Floor 1 List View -->
+  <div id="floor-1-list" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
+      <div class="nav-title">Floor 1</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <button class="toggle-button" onclick="app.navigate('floor-1-map')">
+        🗺️ SWITCH TO MAP VIEW
+      </button>
+      <input
+        type="text"
+        class="search-box"
+        placeholder="Search this floor..."
+        oninput="app.searchFloor(1, this.value)"
+      >
+      <div id="floor-1-list-items" class="room-list">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 6: Floor 1 Map View -->
+  <div id="floor-1-map" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
+      <div class="nav-title">Floor 1</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <button class="toggle-button" onclick="app.navigate('floor-1-list')">
+        🗋 SWITCH TO LIST VIEW
+      </button>
+      <input
+        type="text"
+        class="search-box"
+        placeholder="Search this floor..."
+        oninput="app.searchFloorMap(1, this.value)"
+      >
+      <div class="map-container">
+        <div class="map-instructions">Tap any room number on the map for details</div>
+        <div id="floor-1-map-svg" class="floor-map">
+          <!-- SVG will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 7: Room Info -->
+  <div id="room-info" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigateBack()">← Back</button>
+      <div class="nav-title">Room Details</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <div class="room-info">
+        <div class="room-info-header" id="room-info-title">Room 101</div>
+        <div class="room-info-detail">
+          <span class="room-info-label">Room Number:</span>
+          <span id="room-info-number">101</span>
+        </div>
+        <div class="room-info-detail">
+          <span class="room-info-label">Room Name:</span>
+          <span id="room-info-name">Faculty Office</span>
+        </div>
+        <div class="room-info-detail">
+          <span class="room-info-label">Department:</span>
+          <span id="room-info-department">General</span>
+        </div>
+        <div class="room-info-detail">
+          <span class="room-info-label">Occupant:</span>
+          <span id="room-info-occupant">Dr. Smith</span>
+        </div>
+        <div class="room-info-detail">
+          <span class="room-info-label">Floor:</span>
+          <span id="room-info-floor">1</span>
+        </div>
+        <div class="room-info-detail">
+          <span class="room-info-label">Category:</span>
+          <span class="room-info-color-indicator" id="room-info-color"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 8: By Name Search -->
+  <div id="by-name" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
+      <div class="nav-title">By Name</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <input
+        type="text"
+        id="name-search-input"
+        class="search-box"
+        placeholder="Search faculty or staff..."
+        oninput="app.searchByName(this.value)"
+        onfocus="app.showKeyboard()"
+      >
+      <div id="search-results-count" class="search-results-header"></div>
+      <div id="name-search-results" class="search-results">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+    <div id="keyboard" class="keyboard-container">
+      <div class="keyboard-row">
+        <button class="keyboard-key" onclick="app.typeKey('Q')">Q</button>
+        <button class="keyboard-key" onclick="app.typeKey('W')">W</button>
+        <button class="keyboard-key" onclick="app.typeKey('E')">E</button>
+        <button class="keyboard-key" onclick="app.typeKey('R')">R</button>
+        <button class="keyboard-key" onclick="app.typeKey('T')">T</button>
+        <button class="keyboard-key" onclick="app.typeKey('Y')">Y</button>
+        <button class="keyboard-key" onclick="app.typeKey('U')">U</button>
+        <button class="keyboard-key" onclick="app.typeKey('I')">I</button>
+        <button class="keyboard-key" onclick="app.typeKey('O')">O</button>
+        <button class="keyboard-key" onclick="app.typeKey('P')">P</button>
+      </div>
+      <div class="keyboard-row">
+        <button class="keyboard-key" onclick="app.typeKey('A')">A</button>
+        <button class="keyboard-key" onclick="app.typeKey('S')">S</button>
+        <button class="keyboard-key" onclick="app.typeKey('D')">D</button>
+        <button class="keyboard-key" onclick="app.typeKey('F')">F</button>
+        <button class="keyboard-key" onclick="app.typeKey('G')">G</button>
+        <button class="keyboard-key" onclick="app.typeKey('H')">H</button>
+        <button class="keyboard-key" onclick="app.typeKey('J')">J</button>
+        <button class="keyboard-key" onclick="app.typeKey('K')">K</button>
+        <button class="keyboard-key" onclick="app.typeKey('L')">L</button>
+      </div>
+      <div class="keyboard-row">
+        <button class="keyboard-key" onclick="app.typeKey('Z')">Z</button>
+        <button class="keyboard-key" onclick="app.typeKey('X')">X</button>
+        <button class="keyboard-key" onclick="app.typeKey('C')">C</button>
+        <button class="keyboard-key" onclick="app.typeKey('V')">V</button>
+        <button class="keyboard-key" onclick="app.typeKey('B')">B</button>
+        <button class="keyboard-key" onclick="app.typeKey('N')">N</button>
+        <button class="keyboard-key" onclick="app.typeKey('M')">M</button>
+        <button class="keyboard-key wide" onclick="app.typeKey('BACKSPACE')">⌫</button>
+      </div>
+      <div class="keyboard-row">
+        <button class="keyboard-key wide" onclick="app.typeKey(' ')">SPACE</button>
+        <button class="keyboard-key clear wide" onclick="app.clearSearch()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 9: Faculty Member View -->
+  <div id="faculty-view" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('by-name')">← Search</button>
+      <div class="nav-title">Search Results</div>
+      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+    </div>
+    <div class="content">
+      <div class="faculty-info">
+        <div class="faculty-info-header" id="faculty-info-name">Vincent</div>
+        <div class="faculty-info-detail">
+          <span class="room-info-label">Title:</span>
+          <span id="faculty-info-title">Associate Professor</span>
+        </div>
+        <div class="faculty-info-detail">
+          <span class="room-info-label">Department:</span>
+          <span id="faculty-info-department">Hospitality Faculty</span>
+        </div>
+        <div class="faculty-info-detail">
+          <span class="room-info-label">Office:</span>
+          <span class="faculty-link" id="faculty-info-room" onclick="app.showFacultyRoom()">Room 209, Floor 2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
