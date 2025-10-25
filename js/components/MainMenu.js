@@ -22,27 +22,40 @@ function MainMenu({ onNavigate }) {
 
   return (
     <div className="w-full h-full flex flex-col fade-in" style={{ backgroundColor: 'var(--off-white)' }}>
-      <div className="bg-gray-800 py-6 px-8 flex items-center justify-between">
-        <div className="text-white text-xl font-bold">UHMC</div>
-        <div className="text-white text-3xl font-bold tracking-wide">Ka Lama</div>
+      <div style={{ backgroundColor: 'var(--uhmc-teal)' }} className="py-6 px-8 flex items-center justify-between shadow-lg">
+        <img
+          src="assets/logos/UHMC-Block-Horizontal-Square-White.png"
+          alt="UHMC Logo"
+          className="h-16"
+        />
+        <div className="text-white text-4xl font-bold tracking-wider" style={{ fontWeight: 800 }}>
+          Ka Lama
+        </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6 md:p-10 lg:p-12">
-        <div className="max-w-4xl mx-auto space-y-6">
+      <div className="flex-1 overflow-y-auto p-8 md:p-12 lg:p-16">
+        <div className="max-w-5xl mx-auto space-y-6">
           {menuItems.map(item => (
             <button
               key={item.id}
               onClick={() => handleClick(item)}
-              className={`w-full bg-white border-2 rounded-lg p-10 text-center touch-target card-hover ${
-                !item.active ? 'opacity-60' : ''
+              className={`w-full bg-white rounded-2xl p-12 text-center touch-target transition-all duration-200 ${
+                item.active
+                  ? 'shadow-lg hover:shadow-2xl hover:-translate-y-1'
+                  : 'opacity-50 cursor-not-allowed'
               }`}
-              style={{ borderColor: '#cccccc' }}
+              style={{
+                border: item.active ? `4px solid var(--uhmc-teal)` : '4px solid #cccccc'
+              }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 whitespace-pre-line">
+              <h2 className="text-4xl md:text-5xl font-bold whitespace-pre-line" style={{
+                color: item.active ? 'var(--uhmc-teal)' : '#666',
+                fontWeight: 800
+              }}>
                 {item.title}
               </h2>
               {item.subtitle && (
-                <p className="text-lg text-gray-500 mt-3">{item.subtitle}</p>
+                <p className="text-lg text-gray-500 mt-4 font-medium">{item.subtitle}</p>
               )}
             </button>
           ))}
@@ -52,11 +65,11 @@ function MainMenu({ onNavigate }) {
               <button
                 key={item.id}
                 onClick={() => handleClick(item)}
-                className="bg-white border-2 rounded-lg p-8 text-center touch-target card-hover opacity-60"
-                style={{ borderColor: '#cccccc' }}
+                className="bg-white rounded-2xl p-10 text-center touch-target shadow-md opacity-50 cursor-not-allowed"
+                style={{ border: '4px solid #cccccc' }}
               >
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold text-gray-700">{item.title}</h3>
                 <p className="text-sm text-gray-500 mt-2">{item.subtitle}</p>
               </button>
             ))}
@@ -64,8 +77,10 @@ function MainMenu({ onNavigate }) {
         </div>
       </div>
 
-      <div className="py-6 text-center" style={{ backgroundColor: 'var(--light-gray)' }}>
-        <p className="text-sm text-gray-600">* Need Help? Visit Admissions Room 201</p>
+      <div className="py-8 text-center" style={{ backgroundColor: 'var(--light-gray)' }}>
+        <p className="text-lg font-medium" style={{ color: 'var(--gray)' }}>
+          * Need Help? Visit Admissions Room 201
+        </p>
       </div>
     </div>
   );

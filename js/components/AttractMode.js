@@ -29,14 +29,19 @@ function AttractMode({ onStart, currentSlide }) {
 
   return (
     <div
-      className="w-full h-full gradient-teal flex flex-col cursor-pointer"
+      className="w-full h-full gradient-teal flex flex-col cursor-pointer relative"
       onClick={onStart}
     >
-      <div className="bg-gray-800 text-white py-4 px-6 text-center">
-        <p className="text-sm font-semibold tracking-wide">LEVEL 1 - Attract mode</p>
+      {/* UHMC Logo at top */}
+      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+        <img
+          src="assets/logos/UHMC-Seal-Top-Center-White.png"
+          alt="UHMC Seal"
+          className="h-24 md:h-32 opacity-90"
+        />
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center text-white px-8">
+      <div className="flex-1 flex flex-col items-center justify-center text-white px-8 pt-32">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -44,16 +49,16 @@ function AttractMode({ onStart, currentSlide }) {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div className="text-9xl mb-8 float">{slide.icon}</div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center">
+            <div className="text-9xl mb-10 float">{slide.icon}</div>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-center" style={{ fontWeight: 800 }}>
               {slide.headline}
             </h1>
-            <p className="text-2xl md:text-3xl mb-12 text-center text-gray-200">
+            <p className="text-3xl md:text-4xl mb-16 text-center text-white font-medium opacity-95">
               {slide.subtext}
             </p>
             <button
-              className="pulse-cta bg-yellow-500 text-gray-900 px-12 py-6 rounded-lg text-2xl font-bold hover:bg-yellow-400 transition-colors"
-              style={{ backgroundColor: 'var(--yellow)' }}
+              className="pulse-cta text-gray-900 px-16 py-8 rounded-2xl text-3xl font-bold shadow-2xl transition-all"
+              style={{ backgroundColor: 'var(--yellow)', fontWeight: 800 }}
             >
               {slide.cta}
             </button>
@@ -61,8 +66,8 @@ function AttractMode({ onStart, currentSlide }) {
         ))}
       </div>
 
-      <div className="py-8 text-center">
-        <p className="text-xl text-gray-300">[ Touch to start ]</p>
+      <div className="py-10 text-center">
+        <p className="text-2xl text-white font-semibold opacity-90">Touch anywhere to start</p>
       </div>
     </div>
   );
