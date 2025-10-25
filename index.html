@@ -24,59 +24,98 @@
 
   <!-- LEVEL 2: Features Main Menu -->
   <div id="features-main-menu" class="screen">
-    <div class="nav-bar">
-      <div class="nav-back"></div>
-      <div class="nav-title">MAIN MENU</div>
-      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    <div class="main-menu-header">
+      <div class="main-menu-logo-label">LOGO</div>
+      <div class="main-menu-title">Ka Lama</div>
     </div>
     <div class="content">
       <button class="main-menu-button" onclick="app.navigate('programs')">
-        Programs
+        PROGRAMS
       </button>
       <button class="main-menu-button" onclick="app.navigate('directory-landing')">
-        Directory Landing
+        BUILDING<br>& FACULTY DIRECTORY
       </button>
+      <button class="main-menu-button placeholder-button">
+        CAREERS & INTERNSHIPS<br><span class="placeholder-text">(Placeholder, not in use)</span>
+      </button>
+      <button class="main-menu-button placeholder-button">
+        EVENTS &<br>ANNOUNCEMENTS<br><span class="placeholder-text">(Placeholder, not in use)</span>
+      </button>
+      <div class="main-menu-bottom">
+        <button class="main-menu-small-button placeholder-button">
+          SURVEY<br><span class="placeholder-text">(Placeholder, not in use)</span>
+        </button>
+        <button class="main-menu-small-button placeholder-button">
+          UHMC WEBSITE<br><span class="placeholder-text">(Placeholder, not in use)</span>
+        </button>
+      </div>
       <div class="help-text">Need help? Visit Admissions Room 201</div>
     </div>
   </div>
 
   <!-- LEVEL 3A: Programs Screen -->
   <div id="programs" class="screen">
-    <div class="nav-bar">
-      <button class="nav-back" onclick="app.navigate('features-main-menu')">← Back</button>
-      <div class="nav-title">Programs</div>
-      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    <div class="programs-header">
+      <button class="programs-back" onclick="app.navigate('features-main-menu')">← HOME</button>
+      <div class="programs-logo-label">LOGO</div>
+      <button class="programs-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
-      <button class="program-button" onclick="app.navigate('program-abit')">
-        ABIT
-      </button>
-      <button class="program-button" onclick="app.navigate('program-accounting')">
-        Accounting
-      </button>
-      <button class="program-button" onclick="app.navigate('program-business')">
-        Business
-      </button>
-      <button class="program-button" onclick="app.navigate('program-hospitality')">
-        Hospitality
-      </button>
+    <div class="content programs-content">
+      <div class="programs-grid">
+        <button class="program-grid-button" onclick="app.navigate('program-business')">
+          BUSINESS
+        </button>
+        <button class="program-grid-button" onclick="app.navigate('program-hospitality')">
+          HOSPITALITY
+        </button>
+        <button class="program-grid-button" onclick="app.navigate('program-accounting')">
+          ACCOUNTING
+        </button>
+        <button class="program-grid-button" onclick="app.navigate('program-abit')">
+          ABIT
+        </button>
+      </div>
     </div>
   </div>
 
   <!-- LEVEL 3A-Detail: ABIT Program -->
   <div id="program-abit" class="screen">
-    <div class="nav-bar">
-      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
-      <div class="nav-title">ABIT</div>
-      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    <div class="program-detail-header">
+      <button class="program-detail-back" onclick="app.navigate('programs')">← BACK</button>
+      <div class="program-detail-logo-label">LOGO</div>
+      <button class="program-detail-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
+    <div class="content program-detail-content">
       <div class="program-detail">
-        <h2 class="program-detail-title">Applied Business & Information Technology</h2>
-        <p class="program-detail-text">Program information and details about ABIT.</p>
-        <div class="program-contact">
-          <p><strong>Contact:</strong> Visit Room 203</p>
-          <p><strong>Department:</strong> Business Administration</p>
+        <div class="program-photo-placeholder">[LARGE PHOTO]</div>
+        <div class="program-name-tagline">
+          <strong>Applied Business &</strong><br>
+          <strong>Information Technology</strong><br>
+          Tagline
+        </div>
+        <div class="program-section">
+          <p>Program description text goes here...</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+        </div>
+        <div class="program-section">
+          <strong>Degree options</strong><br>
+          (Include program lengths &<br>
+          descriptions?
+        </div>
+        <div class="program-section">
+          <strong>Career Opportunities:</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Faculty stuff</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Where to learn more? Contact info?</strong>
         </div>
       </div>
     </div>
@@ -84,18 +123,41 @@
 
   <!-- LEVEL 3A-Detail: Accounting Program -->
   <div id="program-accounting" class="screen">
-    <div class="nav-bar">
-      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
-      <div class="nav-title">Accounting</div>
-      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    <div class="program-detail-header">
+      <button class="program-detail-back" onclick="app.navigate('programs')">← BACK</button>
+      <div class="program-detail-logo-label">LOGO</div>
+      <button class="program-detail-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
+    <div class="content program-detail-content">
       <div class="program-detail">
-        <h2 class="program-detail-title">Accounting Program</h2>
-        <p class="program-detail-text">Program information and details about Accounting.</p>
-        <div class="program-contact">
-          <p><strong>Contact:</strong> Visit Room 203</p>
-          <p><strong>Department:</strong> Business Administration</p>
+        <div class="program-photo-placeholder">[LARGE PHOTO]</div>
+        <div class="program-name-tagline">
+          <strong>Accounting</strong><br>
+          Tagline
+        </div>
+        <div class="program-section">
+          <p>Program description text goes here...</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+        </div>
+        <div class="program-section">
+          <strong>Degree options</strong><br>
+          (Include program lengths &<br>
+          descriptions?
+        </div>
+        <div class="program-section">
+          <strong>Career Opportunities:</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Faculty stuff</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Where to learn more? Contact info?</strong>
         </div>
       </div>
     </div>
@@ -103,18 +165,41 @@
 
   <!-- LEVEL 3A-Detail: Business Program -->
   <div id="program-business" class="screen">
-    <div class="nav-bar">
-      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
-      <div class="nav-title">Business</div>
-      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    <div class="program-detail-header">
+      <button class="program-detail-back" onclick="app.navigate('programs')">← BACK</button>
+      <div class="program-detail-logo-label">LOGO</div>
+      <button class="program-detail-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
+    <div class="content program-detail-content">
       <div class="program-detail">
-        <h2 class="program-detail-title">Business Program</h2>
-        <p class="program-detail-text">Program information and details about Business.</p>
-        <div class="program-contact">
-          <p><strong>Contact:</strong> Visit Room 203</p>
-          <p><strong>Department:</strong> Business Administration</p>
+        <div class="program-photo-placeholder">[LARGE PHOTO]</div>
+        <div class="program-name-tagline">
+          <strong>Business</strong><br>
+          Tagline
+        </div>
+        <div class="program-section">
+          <p>Program description text goes here...</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+        </div>
+        <div class="program-section">
+          <strong>Degree options</strong><br>
+          (Include program lengths &<br>
+          descriptions?
+        </div>
+        <div class="program-section">
+          <strong>Career Opportunities:</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Faculty stuff</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Where to learn more? Contact info?</strong>
         </div>
       </div>
     </div>
@@ -122,18 +207,41 @@
 
   <!-- LEVEL 3A-Detail: Hospitality Program -->
   <div id="program-hospitality" class="screen">
-    <div class="nav-bar">
-      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
-      <div class="nav-title">Hospitality</div>
-      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    <div class="program-detail-header">
+      <button class="program-detail-back" onclick="app.navigate('programs')">← BACK</button>
+      <div class="program-detail-logo-label">LOGO</div>
+      <button class="program-detail-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
+    <div class="content program-detail-content">
       <div class="program-detail">
-        <h2 class="program-detail-title">Hospitality & Tourism Program</h2>
-        <p class="program-detail-text">Program information and details about Hospitality.</p>
-        <div class="program-contact">
-          <p><strong>Contact:</strong> Visit Room 206</p>
-          <p><strong>Department:</strong> Hospitality Faculty</p>
+        <div class="program-photo-placeholder">[LARGE PHOTO]</div>
+        <div class="program-name-tagline">
+          <strong>Hospitality & Tourism</strong><br>
+          Tagline
+        </div>
+        <div class="program-section">
+          <p>Program description text goes here...</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+          <p>BLAH</p>
+        </div>
+        <div class="program-section">
+          <strong>Degree options</strong><br>
+          (Include program lengths &<br>
+          descriptions?
+        </div>
+        <div class="program-section">
+          <strong>Career Opportunities:</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Faculty stuff</strong><br>
+          1.<br>
+          2.
+        </div>
+        <div class="program-section">
+          <strong>Where to learn more? Contact info?</strong>
         </div>
       </div>
     </div>
@@ -143,13 +251,26 @@
   <div id="directory-landing" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('features-main-menu')">← Back</button>
-      <div class="nav-title">Building Directory</div>
+      <div class="nav-title">BUILDING DIRECTORY</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
-      <button class="directory-option" onclick="app.navigate('by-floor')">
-        Find Rooms & Faculty
+    <div class="content directory-content">
+      <div class="directory-subtitle">Find Rooms & Faculty</div>
+      <button class="directory-option-card" onclick="app.navigate('by-floor')">
+        <div class="directory-icon">🏢</div>
+        <div class="directory-option-text">
+          <div class="directory-option-title">BROWSE BY FLOOR</div>
+          <div class="directory-option-subtitle">View interactive floor maps</div>
+        </div>
       </button>
+      <button class="directory-option-card" onclick="app.navigate('by-name')">
+        <div class="directory-icon">🔍</div>
+        <div class="directory-option-text">
+          <div class="directory-option-title">SEARCH BY NAME</div>
+          <div class="directory-option-subtitle">Find faculty or staff member</div>
+        </div>
+      </button>
+      <div class="help-text directory-help">Need help? Visit Admissions Room 201</div>
     </div>
   </div>
 
@@ -157,24 +278,35 @@
   <div id="by-floor" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('directory-landing')">← Back</button>
-      <div class="nav-title">Select a Floor</div>
+      <div class="nav-title">SELECT A FLOOR</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
-      <div class="floor-selection">
-        <button class="floor-button" onclick="app.navigate('floor-2-map')">
-          <div class="floor-button-title">Floor 2</div>
-          <div class="floor-button-preview">
-            Admissions & Records • Financial Aid Office<br>
-            Business Administration • Hawaiian Studies<br>
-            Hospitality Faculty
+    <div class="content floor-selection-content">
+      <div class="floor-cards">
+        <button class="floor-card" onclick="app.navigate('floor-1-list')">
+          <div class="floor-card-title">FLOOR 1</div>
+          <div class="floor-map-preview">
+            <img src="Floor 1.jpg" alt="Floor 1 Map">
+          </div>
+          <div class="floor-card-list">
+            • Faculty Offices<br>
+            • STEM Department<br>
+            • Veteran's Resource Center<br>
+            • Social Science Faculty<br>
+            • Hawaii Child Welfare
           </div>
         </button>
-        <button class="floor-button" onclick="app.navigate('floor-1-map')">
-          <div class="floor-button-title">Floor 1</div>
-          <div class="floor-button-preview">
-            General Offices • Classrooms<br>
-            Science Labs • Computer Labs
+        <button class="floor-card" onclick="app.navigate('floor-2-list')">
+          <div class="floor-card-title">FLOOR 2</div>
+          <div class="floor-map-preview">
+            <img src="Floor 2.jpg" alt="Floor 2 Map">
+          </div>
+          <div class="floor-card-list">
+            • Admissions & Records<br>
+            • Financial Aid Office<br>
+            • Hawaiian Studies<br>
+            • Business Administration<br>
+            • Hospitality Faculty
           </div>
         </button>
       </div>
@@ -185,11 +317,11 @@
   <div id="floor-2-list" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
-      <div class="nav-title">Floor 2</div>
+      <div class="nav-title">FLOOR 2</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
-      <button class="toggle-button" onclick="app.navigate('floor-2-map')">
+      <button class="toggle-button yellow-toggle" onclick="app.navigate('floor-2-map')">
         🗺️ SWITCH TO MAP VIEW
       </button>
       <input
@@ -201,6 +333,7 @@
       <div id="floor-2-list-items" class="room-list">
         <!-- Populated by JavaScript -->
       </div>
+      <div class="floor-list-footer">End of Floor 2 Directory</div>
     </div>
   </div>
 
@@ -208,11 +341,11 @@
   <div id="floor-2-map" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
-      <div class="nav-title">Floor 2</div>
+      <div class="nav-title">FLOOR 2</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
-      <button class="toggle-button" onclick="app.navigate('floor-2-list')">
+      <button class="toggle-button yellow-toggle" onclick="app.navigate('floor-2-list')">
         🗋 SWITCH TO LIST VIEW
       </button>
       <input
@@ -234,11 +367,11 @@
   <div id="floor-1-list" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
-      <div class="nav-title">Floor 1</div>
+      <div class="nav-title">FLOOR 1</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
-      <button class="toggle-button" onclick="app.navigate('floor-1-map')">
+      <button class="toggle-button yellow-toggle" onclick="app.navigate('floor-1-map')">
         🗺️ SWITCH TO MAP VIEW
       </button>
       <input
@@ -250,6 +383,7 @@
       <div id="floor-1-list-items" class="room-list">
         <!-- Populated by JavaScript -->
       </div>
+      <div class="floor-list-footer">End of Floor 1 Directory</div>
     </div>
   </div>
 
@@ -257,11 +391,11 @@
   <div id="floor-1-map" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
-      <div class="nav-title">Floor 1</div>
+      <div class="nav-title">FLOOR 1</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
-      <button class="toggle-button" onclick="app.navigate('floor-1-list')">
+      <button class="toggle-button yellow-toggle" onclick="app.navigate('floor-1-list')">
         🗋 SWITCH TO LIST VIEW
       </button>
       <input
@@ -283,36 +417,43 @@
   <div id="room-info" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigateBack()">← Back</button>
-      <div class="nav-title">Room Details</div>
+      <div class="nav-title">ROOM DETAILS</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
+    <div class="content room-detail-content">
       <div class="room-info">
-        <div class="room-info-header" id="room-info-title">Room 101</div>
-        <div class="room-info-detail">
-          <span class="room-info-label">Room Number:</span>
-          <span id="room-info-number">101</span>
+        <div class="room-number-large" id="room-info-title">ROOM 234</div>
+        <div class="room-floor-label" id="room-info-floor-label">Floor 2</div>
+        <div class="room-map-placeholder">
+          [FLOOR 2 MAP]<br>
+          With Room 234 highlighted<br>
+          📍<br>
+          For visual location<br>
+          <div class="room-map-note">* Room 234 is highlighted on the map above</div>
         </div>
-        <div class="room-info-detail">
-          <span class="room-info-label">Room Name:</span>
-          <span id="room-info-name">Faculty Office</span>
+        <div class="room-info-section">
+          <div class="room-section-title">👤 OCCUPANT</div>
+          <div class="room-section-content">
+            <div id="room-info-occupant">Vincent Domingo</div>
+            <div id="room-info-department">Business & Hospitality</div>
+          </div>
         </div>
-        <div class="room-info-detail">
-          <span class="room-info-label">Department:</span>
-          <span id="room-info-department">General</span>
+        <div class="room-info-section">
+          <div class="room-section-title">📧 CONTACT</div>
+          <div class="room-section-content">
+            <div id="room-info-contact">vicentrog@hawaii.edu</div>
+          </div>
         </div>
-        <div class="room-info-detail">
-          <span class="room-info-label">Occupant:</span>
-          <span id="room-info-occupant">Dr. Smith</span>
+        <div class="room-info-section">
+          <div class="room-section-title">🧭 DIRECTIONS</div>
+          <div class="room-section-content" id="room-info-directions">
+            • Take stairs or elevator to Floor 2<br>
+            • Turn right from the elevator<br>
+            • Room 234 is on the left side
+          </div>
         </div>
-        <div class="room-info-detail">
-          <span class="room-info-label">Floor:</span>
-          <span id="room-info-floor">1</span>
-        </div>
-        <div class="room-info-detail">
-          <span class="room-info-label">Category:</span>
-          <span class="room-info-color-indicator" id="room-info-color"></span>
-        </div>
+        <button class="room-detail-button" onclick="app.viewFloorMap()">🗺️ VIEW FULL FLOOR MAP</button>
+        <button class="room-detail-button secondary" onclick="app.viewDepartment()">🏢 VIEW DEPARTMENT</button>
       </div>
     </div>
   </div>
@@ -383,24 +524,31 @@
   <div id="faculty-view" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-name')">← Search</button>
-      <div class="nav-title">Search Results</div>
+      <div class="nav-title">SEARCH RESULTS</div>
       <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
-    <div class="content">
-      <div class="faculty-info">
-        <div class="faculty-info-header" id="faculty-info-name">Vincent</div>
-        <div class="faculty-info-detail">
-          <span class="room-info-label">Title:</span>
-          <span id="faculty-info-title">Associate Professor</span>
+    <div class="content faculty-search-content">
+      <div class="faculty-search-box-container">
+        <input type="text" class="search-box" id="faculty-search-display" placeholder="Search for faculty or staff..." value="Vincent">
+        <button class="search-clear-button">Clear</button>
+      </div>
+      <div class="search-results-count" id="search-results-count">RESULTS (1 found)</div>
+      <div class="faculty-result-card">
+        <div class="faculty-result-header">
+          <div class="faculty-result-name" id="faculty-info-name">Vincent Domingo</div>
+          <div class="faculty-result-arrow">▶</div>
         </div>
-        <div class="faculty-info-detail">
-          <span class="room-info-label">Department:</span>
-          <span id="faculty-info-department">Hospitality Faculty</span>
-        </div>
-        <div class="faculty-info-detail">
-          <span class="room-info-label">Office:</span>
-          <span class="faculty-link" id="faculty-info-room" onclick="app.showFacultyRoom()">Room 209, Floor 2</span>
-        </div>
+        <div class="faculty-result-department" id="faculty-info-department">Business & Hospitality</div>
+        <div class="faculty-result-room" id="faculty-info-room">Room 234, Floor 2</div>
+      </div>
+      <div class="faculty-contact-section">
+        <div class="faculty-contact-title">📧 CONTACT</div>
+        <div class="faculty-contact-email" id="faculty-info-contact">vicentrog@hawaii.edu</div>
+      </div>
+      <button class="faculty-map-button" onclick="app.viewOnFloorMap()">🗺️ VIEW ON FLOOR MAP</button>
+      <div class="faculty-location-note">
+        Room is located on Floor 2<br>
+        Turn right from elevator
       </div>
     </div>
   </div>
