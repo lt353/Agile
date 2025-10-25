@@ -498,3 +498,141 @@ body {
   color: var(--text-secondary);
   line-height: 1.5;
 }
+
+/* Attract Mode Screen */
+.attract-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: var(--text-primary);
+  color: var(--primary-bg);
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.attract-slideshow {
+  margin-bottom: 60px;
+}
+
+.attract-header {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.attract-placeholder {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--accent-gold);
+}
+
+.attract-subtitle {
+  font-size: var(--font-small);
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.attract-tap-instruction {
+  font-size: var(--font-title);
+  font-weight: 600;
+  padding: 12px 24px;
+  border: 2px solid var(--primary-bg);
+  border-radius: 4px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Features Main Menu */
+.main-menu-button {
+  width: 100%;
+  background-color: var(--primary-button);
+  border: 1px solid var(--border-dark);
+  padding: 18px;
+  font-size: var(--font-header);
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.main-menu-button:hover {
+  opacity: 0.85;
+}
+
+.help-text {
+  font-size: var(--font-small);
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Programs Screen */
+.program-button {
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 14px 15px;
+  font-size: var(--font-title);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.program-button:hover {
+  background-color: #E8E8E8;
+  border-color: var(--border-dark);
+}
+
+/* Program Detail Pages */
+.program-detail {
+  padding: 0;
+}
+
+.program-detail-title {
+  font-size: var(--font-header);
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.program-detail-text {
+  font-size: var(--font-body);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.program-contact {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+
+.program-contact p {
+  font-size: var(--font-body);
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.program-contact p:last-child {
+  margin-bottom: 0;
+}

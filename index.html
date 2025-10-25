@@ -9,12 +9,142 @@
 </head>
 <body>
   <div id="app-container">
-  <!-- Screen 1: Directory Landing -->
-  <div id="directory-landing" class="screen active">
+
+  <!-- LEVEL 1: Attract Mode (START SCREEN) -->
+  <div id="attract-mode" class="screen active">
+    <div class="attract-content">
+      <div class="attract-slideshow">
+        <div class="attract-header">SLIDESHOW</div>
+        <div class="attract-placeholder">PLACEHOLDER</div>
+        <div class="attract-subtitle">(Rotating slides cycle automatically)</div>
+      </div>
+      <div class="attract-tap-instruction">TAP ANYWHERE TO START</div>
+    </div>
+  </div>
+
+  <!-- LEVEL 2: Features Main Menu -->
+  <div id="features-main-menu" class="screen">
     <div class="nav-bar">
-      <button class="nav-back" onclick="app.navigate('home')">← Back</button>
+      <div class="nav-back"></div>
+      <div class="nav-title">MAIN MENU</div>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    </div>
+    <div class="content">
+      <button class="main-menu-button" onclick="app.navigate('programs')">
+        Programs
+      </button>
+      <button class="main-menu-button" onclick="app.navigate('directory-landing')">
+        Directory Landing
+      </button>
+      <div class="help-text">Need help? Visit Admissions Room 201</div>
+    </div>
+  </div>
+
+  <!-- LEVEL 3A: Programs Screen -->
+  <div id="programs" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('features-main-menu')">← Back</button>
+      <div class="nav-title">Programs</div>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    </div>
+    <div class="content">
+      <button class="program-button" onclick="app.navigate('program-abit')">
+        ABIT
+      </button>
+      <button class="program-button" onclick="app.navigate('program-accounting')">
+        Accounting
+      </button>
+      <button class="program-button" onclick="app.navigate('program-business')">
+        Business
+      </button>
+      <button class="program-button" onclick="app.navigate('program-hospitality')">
+        Hospitality
+      </button>
+    </div>
+  </div>
+
+  <!-- LEVEL 3A-Detail: ABIT Program -->
+  <div id="program-abit" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
+      <div class="nav-title">ABIT</div>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    </div>
+    <div class="content">
+      <div class="program-detail">
+        <h2 class="program-detail-title">Applied Business & Information Technology</h2>
+        <p class="program-detail-text">Program information and details about ABIT.</p>
+        <div class="program-contact">
+          <p><strong>Contact:</strong> Visit Room 203</p>
+          <p><strong>Department:</strong> Business Administration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 3A-Detail: Accounting Program -->
+  <div id="program-accounting" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
+      <div class="nav-title">Accounting</div>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    </div>
+    <div class="content">
+      <div class="program-detail">
+        <h2 class="program-detail-title">Accounting Program</h2>
+        <p class="program-detail-text">Program information and details about Accounting.</p>
+        <div class="program-contact">
+          <p><strong>Contact:</strong> Visit Room 203</p>
+          <p><strong>Department:</strong> Business Administration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 3A-Detail: Business Program -->
+  <div id="program-business" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
+      <div class="nav-title">Business</div>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    </div>
+    <div class="content">
+      <div class="program-detail">
+        <h2 class="program-detail-title">Business Program</h2>
+        <p class="program-detail-text">Program information and details about Business.</p>
+        <div class="program-contact">
+          <p><strong>Contact:</strong> Visit Room 203</p>
+          <p><strong>Department:</strong> Business Administration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 3A-Detail: Hospitality Program -->
+  <div id="program-hospitality" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('programs')">← Programs</button>
+      <div class="nav-title">Hospitality</div>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
+    </div>
+    <div class="content">
+      <div class="program-detail">
+        <h2 class="program-detail-title">Hospitality & Tourism Program</h2>
+        <p class="program-detail-text">Program information and details about Hospitality.</p>
+        <div class="program-contact">
+          <p><strong>Contact:</strong> Visit Room 206</p>
+          <p><strong>Department:</strong> Hospitality Faculty</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 3B: Directory Landing -->
+  <div id="directory-landing" class="screen">
+    <div class="nav-bar">
+      <button class="nav-back" onclick="app.navigate('features-main-menu')">← Back</button>
       <div class="nav-title">Building Directory</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <button class="directory-option" onclick="app.navigate('by-floor')">
@@ -23,16 +153,16 @@
     </div>
   </div>
 
-  <!-- Screen 2: By Floor Selection -->
+  <!-- LEVEL 4A: By Floor Selection -->
   <div id="by-floor" class="screen">
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('directory-landing')">← Back</button>
       <div class="nav-title">Select a Floor</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <div class="floor-selection">
-        <button class="floor-button" onclick="app.navigate('floor-2-list')">
+        <button class="floor-button" onclick="app.navigate('floor-2-map')">
           <div class="floor-button-title">Floor 2</div>
           <div class="floor-button-preview">
             Admissions & Records • Financial Aid Office<br>
@@ -40,7 +170,7 @@
             Hospitality Faculty
           </div>
         </button>
-        <button class="floor-button" onclick="app.navigate('floor-1-list')">
+        <button class="floor-button" onclick="app.navigate('floor-1-map')">
           <div class="floor-button-title">Floor 1</div>
           <div class="floor-button-preview">
             General Offices • Classrooms<br>
@@ -56,7 +186,7 @@
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
       <div class="nav-title">Floor 2</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <button class="toggle-button" onclick="app.navigate('floor-2-map')">
@@ -79,7 +209,7 @@
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
       <div class="nav-title">Floor 2</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <button class="toggle-button" onclick="app.navigate('floor-2-list')">
@@ -105,7 +235,7 @@
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
       <div class="nav-title">Floor 1</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <button class="toggle-button" onclick="app.navigate('floor-1-map')">
@@ -128,7 +258,7 @@
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
       <div class="nav-title">Floor 1</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <button class="toggle-button" onclick="app.navigate('floor-1-list')">
@@ -154,7 +284,7 @@
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigateBack()">← Back</button>
       <div class="nav-title">Room Details</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <div class="room-info">
@@ -192,7 +322,7 @@
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-floor')">← Floors</button>
       <div class="nav-title">By Name</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <input
@@ -254,7 +384,7 @@
     <div class="nav-bar">
       <button class="nav-back" onclick="app.navigate('by-name')">← Search</button>
       <div class="nav-title">Search Results</div>
-      <button class="nav-home" onclick="app.navigate('home')">HOME</button>
+      <button class="nav-home" onclick="app.navigate('attract-mode')">HOME</button>
     </div>
     <div class="content">
       <div class="faculty-info">
