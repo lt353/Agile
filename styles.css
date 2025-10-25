@@ -926,6 +926,14 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.floor-map-preview svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .floor-card-list {
