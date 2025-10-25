@@ -92,29 +92,36 @@ const app = {
 
     if (!container) return;
 
-    // Find all rooms for this floor
-    const floorData = buildingData.floors.find(f => f.id === floorNumber);
-    if (!floorData) return;
+    // Find all path elements with 3-digit IDs (room numbers)
+    const svg = container.querySelector('svg');
+    if (!svg) return;
 
-    // Add click handlers to all room number paths
-    floorData.rooms.forEach(room => {
-      const roomElement = container.querySelector(`path[id="${room.number}"]`);
-      if (roomElement) {
-        roomElement.style.cursor = 'pointer';
-        roomElement.addEventListener('click', () => {
-          this.showRoomInfo(floorNumber, room.number);
-        });
+    const allPaths = svg.querySelectorAll('path[id]');
+    allPaths.forEach(pathElement => {
+      const roomId = pathElement.getAttribute('id');
 
-        // Also add hover effect
-        roomElement.addEventListener('mouseenter', () => {
-          roomElement.style.opacity = '0.7';
-          roomElement.style.filter = 'drop-shadow(0 0 5px rgba(0, 0, 0, 0.5))';
-        });
+      // Check if it's a 3-digit room number matching our floor
+      if (roomId && /^\d{3}$/.test(roomId)) {
+        const roomFloor = Math.floor(parseInt(roomId) / 100);
 
-        roomElement.addEventListener('mouseleave', () => {
-          roomElement.style.opacity = '1';
-          roomElement.style.filter = 'none';
-        });
+        if (roomFloor === floorNumber) {
+          pathElement.style.cursor = 'pointer';
+
+          pathElement.addEventListener('click', () => {
+            this.showRoomInfo(floorNumber, roomId);
+          });
+
+          // Add hover effect
+          pathElement.addEventListener('mouseenter', () => {
+            pathElement.style.opacity = '0.7';
+            pathElement.style.filter = 'drop-shadow(0 0 8px rgba(74, 144, 226, 0.8))';
+          });
+
+          pathElement.addEventListener('mouseleave', () => {
+            pathElement.style.opacity = '1';
+            pathElement.style.filter = 'none';
+          });
+        }
       }
     });
   },
@@ -321,8 +328,18 @@ const app = {
     const floorData = buildingData.floors.find(f => f.id === floorNumber);
     if (!floorData) return;
 
-    const room = floorData.rooms.find(r => r.number === roomNumber);
-    if (!room) return;
+    let room = floorData.rooms.find(r => r.number === roomNumber);
+
+    // If room not in our data, create a placeholder
+    if (!room) {
+      room = {
+        number: roomNumber,
+        name: 'Room',
+        department: 'General',
+        occupant: '',
+        color: '#FFF9E6'
+      };
+    }
 
     this.currentRoomInfo = { floor: floorNumber, room };
 
