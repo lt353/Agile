@@ -136,35 +136,99 @@ const app = {
     const floorData = buildingData.floors.find(f => f.id === floorNumber);
     if (!floorData) return;
 
-    // Sort rooms by number
-    const sortedRooms = [...floorData.rooms].sort((a, b) => {
-      return parseInt(a.number) - parseInt(b.number);
-    });
+    let html = '';
 
-    // Group notable departments first for Floor 2
-    let roomsToDisplay = sortedRooms;
     if (floorNumber === 2) {
-      const departments = buildingData.departments.filter(d => d.floor === 2);
-      const departmentRooms = departments.map(dept => {
-        return sortedRooms.find(room => room.number === dept.room);
-      }).filter(Boolean);
+      // Floor 2 categories
+      const categories = [
+        {
+          title: 'ADMINISTRATIVE OFFICES',
+          rooms: floorData.rooms.filter(r => ['201', '203', '232'].includes(r.number))
+        },
+        {
+          title: 'FACULTY OFFICES - HAWAIIAN STUDIES',
+          rooms: floorData.rooms.filter(r => r.department === 'Hawaiian Studies' && r.number !== '204')
+        },
+        {
+          title: 'FACULTY OFFICES - BUSINESS & HOSPITALITY',
+          rooms: floorData.rooms.filter(r => ['206', '209', '211', '213', '214', '216', '217', '218'].includes(r.number))
+        },
+        {
+          title: 'FACULTY OFFICES - SOCIAL SCIENCE',
+          rooms: floorData.rooms.filter(r => ['235', '221', '233', '234'].includes(r.number) && r.department !== 'Hospitality Faculty')
+        },
+        {
+          title: 'PROGRAM / SERVICE OFFICES',
+          rooms: floorData.rooms.filter(r => ['233'].includes(r.number))
+        },
+        {
+          title: 'VACANT / UNASSIGNED ROOMS',
+          rooms: floorData.rooms.filter(r => !r.occupant && r.department !== 'Facilities')
+        }
+      ];
 
-      const otherRooms = sortedRooms.filter(room => {
-        return !departmentRooms.find(dr => dr.number === room.number);
+      categories.forEach(category => {
+        if (category.rooms.length > 0) {
+          html += `<div class="category-header">${category.title}</div>`;
+          category.rooms.forEach(room => {
+            html += `
+              <div class="room-item" onclick="app.showRoomInfo(${floorNumber}, '${room.number}')">
+                <div class="room-item-title">Room ${room.number} - ${room.name}</div>
+                ${room.department ? `<div class="room-item-subtitle">${room.department}</div>` : ''}
+                ${room.occupant ? `<div class="room-item-subtitle">${room.occupant}</div>` : ''}
+                <div class="room-item-arrow">▶</div>
+              </div>
+            `;
+          });
+        }
       });
+    } else if (floorNumber === 1) {
+      // Floor 1 categories
+      const categories = [
+        {
+          title: 'STUDENT SERVICES / RESOURCE CENTERS',
+          rooms: floorData.rooms.filter(r => ['101'].includes(r.number))
+        },
+        {
+          title: 'FACULTY OFFICES - SOCIAL SCIENCE',
+          rooms: floorData.rooms.filter(r => ['110', '111', '120', '121'].includes(r.number))
+        },
+        {
+          title: 'FACULTY OFFICES - HUMANITIES',
+          rooms: floorData.rooms.filter(r => ['117', '118', '119', '123'].includes(r.number))
+        },
+        {
+          title: 'FACULTY OFFICES - STEM DEPARTMENT',
+          rooms: floorData.rooms.filter(r => ['114', '115', '126'].includes(r.number))
+        },
+        {
+          title: 'FACULTY OFFICES - OTHER DEPARTMENTS',
+          rooms: floorData.rooms.filter(r => ['112', '113'].includes(r.number))
+        },
+        {
+          title: 'PROGRAM / SERVICE OFFICES',
+          rooms: floorData.rooms.filter(r => ['127', '130', '131', '134'].includes(r.number))
+        }
+      ];
 
-      roomsToDisplay = [...departmentRooms, ...otherRooms];
+      categories.forEach(category => {
+        if (category.rooms.length > 0) {
+          html += `<div class="category-header">${category.title}</div>`;
+          category.rooms.forEach(room => {
+            html += `
+              <div class="room-item" onclick="app.showRoomInfo(${floorNumber}, '${room.number}')">
+                <div class="room-item-title">Room ${room.number} - ${room.name}</div>
+                ${room.department ? `<div class="room-item-subtitle">${room.department}</div>` : ''}
+                ${room.occupant ? `<div class="room-item-subtitle">${room.occupant}</div>` : ''}
+                <div class="room-item-arrow">▶</div>
+              </div>
+            `;
+          });
+        }
+      });
     }
 
-    container.innerHTML = roomsToDisplay.map(room => {
-      return `
-        <div class="room-item" onclick="app.showRoomInfo(${floorNumber}, '${room.number}')">
-          <div class="room-item-title">${room.number} - ${room.name}</div>
-          ${room.department ? `<div class="room-item-subtitle">${room.department}</div>` : ''}
-          ${room.occupant ? `<div class="room-item-subtitle">${room.occupant}</div>` : ''}
-        </div>
-      `;
-    }).join('');
+    container.innerHTML = html;
   },
 
   // Search floor
@@ -263,17 +327,45 @@ const app = {
     this.currentRoomInfo = { floor: floorNumber, room };
 
     // Populate room info
-    document.getElementById('room-info-title').textContent = `Room ${room.number}`;
-    document.getElementById('room-info-number').textContent = room.number;
-    document.getElementById('room-info-name').textContent = room.name;
-    document.getElementById('room-info-department').textContent = room.department || 'N/A';
+    document.getElementById('room-info-title').textContent = `ROOM ${room.number}`;
+    document.getElementById('room-info-floor-label').textContent = `Floor ${floorNumber}`;
     document.getElementById('room-info-occupant').textContent = room.occupant || 'Vacant';
-    document.getElementById('room-info-floor').textContent = floorNumber;
+    document.getElementById('room-info-department').textContent = room.department || 'General';
 
-    const colorIndicator = document.getElementById('room-info-color');
-    colorIndicator.style.backgroundColor = room.color;
+    // Set contact info (email placeholder)
+    const contactEl = document.getElementById('room-info-contact');
+    if (contactEl) {
+      contactEl.textContent = room.occupant ? `${room.occupant.toLowerCase().replace(/\s+/g, '')}@hawaii.edu` : 'N/A';
+    }
+
+    // Set directions based on floor
+    const directionsEl = document.getElementById('room-info-directions');
+    if (directionsEl) {
+      const directions = floorNumber === 2
+        ? '• Take stairs or elevator to Floor 2<br>• Turn right from the elevator<br>• Room ' + room.number + ' is on the left side'
+        : '• Take stairs or go to Floor 1<br>• Turn left from the entrance<br>• Room ' + room.number + ' is on the right side';
+      directionsEl.innerHTML = directions;
+    }
 
     this.navigate('room-info');
+  },
+
+  // View floor map from room detail
+  viewFloorMap() {
+    if (!this.currentRoomInfo) return;
+    const floor = this.currentRoomInfo.floor;
+    this.navigate(`floor-${floor}-map`);
+  },
+
+  // View department (placeholder)
+  viewDepartment() {
+    alert('Department view feature coming soon!');
+  },
+
+  // View on floor map from faculty search
+  viewOnFloorMap() {
+    if (!this.currentFacultyInfo) return;
+    this.navigate(`floor-${this.currentFacultyInfo.floor}-map`);
   },
 
   // Search by name
